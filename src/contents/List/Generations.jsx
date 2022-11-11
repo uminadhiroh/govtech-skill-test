@@ -1,6 +1,6 @@
 import React from "react";
 
-const Generations = ({ generations }) => (
+const Generations = ({ generations, generationsParam, onFilter }) => (
   <div className="py-8">
     <h3 className="font-semibold pb-3">Generations</h3>
     <div className="overflow-auto h-40">
@@ -11,7 +11,9 @@ const Generations = ({ generations }) => (
             id={gen.name}
             name={gen.name}
             value={gen.name}
+            defaultChecked={!!generationsParam?.includes(gen.name)}
             className="rounded text-red-500 focus:ring-red-500 mr-2"
+            onChange={(e) => onFilter(e.target.value, "generations")}
           />
           <label htmlFor={gen.name} className="uppercase text-sm">
             {gen.name.replace("generation-", "")}

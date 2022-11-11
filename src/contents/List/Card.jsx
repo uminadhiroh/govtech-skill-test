@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import InfiniteScroll from "react-infinite-scroller";
 
-const Card = ({ list, loadMore, hasMore }) => {
+const Card = ({ data, loadMore, hasMore }) => {
   const displayNumber = (id) => {
     if (id < 10) {
       return `#00${id}`;
@@ -94,11 +94,11 @@ const Card = ({ list, loadMore, hasMore }) => {
       }
     >
       <div className="grid grid-cols-3 gap-8">
-        {list.map((val) => (
+        {data.map((val) => (
           <div className="border rounded" key={val.id}>
             <div className="relative bg-gray-200 border-b p-6">
               <Image
-                src={val.image}
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${val.id}.png`}
                 alt={val.name}
                 width={200}
                 height={200}
@@ -110,12 +110,14 @@ const Card = ({ list, loadMore, hasMore }) => {
               <small>{displayNumber(val.id)}</small>
               <h3 className="text-2xl font-bold capitalize mb-2">{val.name}</h3>
               <div className="flex gap-2 mb-2">
-                {val.types.map((type, index) => (
+                {val.pokemons[0].types.map((type, index) => (
                   <div
                     key={index}
-                    className={`rounded px-2 py-0.5 ${displayType(type)}`}
+                    className={`rounded px-2 py-0.5 ${displayType(
+                      type.type.name
+                    )}`}
                   >
-                    <p className="capitalize text-sm">{type}</p>
+                    <p className="capitalize text-sm">{type.type.name}</p>
                   </div>
                 ))}
               </div>
