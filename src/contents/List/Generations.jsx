@@ -11,7 +11,7 @@ const Generations = ({ generations }) => (
             id={gen.name}
             name={gen.name}
             value={gen.name}
-            className="rounded-sm text-red-500 focus:ring-red-500 mr-2"
+            className="rounded text-red-500 focus:ring-red-500 mr-2"
           />
           <label htmlFor={gen.name} className="uppercase text-sm">
             {gen.name.replace("generation-", "")}

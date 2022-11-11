@@ -11,7 +11,7 @@ const Types = ({ types }) => (
             id={type.name}
             name={type.name}
             value={type.name}
-            className="rounded-sm text-red-500 focus:ring-red-500 mr-2"
+            className="rounded text-red-500 focus:ring-red-500 mr-2"
           />
           <label htmlFor={type.name} className="capitalize text-sm">
             {type.name}
