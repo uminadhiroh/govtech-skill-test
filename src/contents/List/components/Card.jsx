@@ -93,9 +93,9 @@ const Card = ({ data, loadMore, hasMore }) => {
         </div>
       }
     >
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
         {data.map((val) => (
-          <div className="border rounded" key={val.id}>
+          <div className="border rounded md:w-full w-3/4 m-auto" key={val.id}>
             <div className="relative bg-gray-200 border-b p-6">
               <Image
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${val.id}.png`}

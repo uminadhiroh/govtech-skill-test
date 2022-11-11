@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
-import Card from "./Card";
-import Generations from "./Generations";
-import Types from "./Types";
+import Card from "./components/Card";
+import Filter from "./components/Filter";
+import Menu from "./components/Menu";
 
 const List = ({ types, generations, species, list }) => {
   const router = useRouter();
   const { types: typesParam, generations: generationsParam } = router.query;
   const [offset, setOffset] = useState(21);
   const [data, setData] = useState(list);
+  const [showFilter, setShowFilter] = useState(false);
 
   const hasMore = species.count - offset > 21;
   let bodyQuery = {};
@@ -162,26 +163,24 @@ const List = ({ types, generations, species, list }) => {
   };
 
   return (
-    <div className="container m-auto">
-      <div className="border-b py-16">
-        <h1 className="text-5xl font-semibold">Pokédex</h1>
+    <div className="container m-auto md:px-8 px-4">
+      <div className="border-b lg:py-16 py-12">
+        <h1 className="lg:text-5xl md:text-4xl text-3xl font-semibold">
+          Pokédex
+        </h1>
       </div>
-      <div className="flex gap-16 py-8">
-        <div className="w-1/4 sticky top-0 h-fit">
-          <form className="grid grid-cols-1 divide-y">
-            <Types
-              types={types}
-              typesParam={typesParam?.split(",")}
-              onFilter={onFilter}
-            />
-            <Generations
-              generations={generations}
-              generationsParam={generationsParam?.split(",")}
-              onFilter={onFilter}
-            />
-          </form>
-        </div>
-        <div className="w-3/4 py-8">
+      <Menu setShowFilter={setShowFilter} />
+      <div className="md:flex xl:gap-16 gap-8 lg:py-8">
+        <Filter
+          showFilter={showFilter}
+          types={types}
+          typesParam={typesParam}
+          generations={generations}
+          generationsParam={generationsParam}
+          onFilter={onFilter}
+          setShowFilter={setShowFilter}
+        />
+        <div className="md:w-3/4 w-full py-8">
           <Card
             data={data.data.species}
             loadMore={loadMore}

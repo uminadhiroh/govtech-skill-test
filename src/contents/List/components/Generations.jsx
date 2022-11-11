@@ -1,9 +1,11 @@
 import React from "react";
 
 const Generations = ({ generations, generationsParam, onFilter }) => (
-  <div className="py-8">
-    <h3 className="font-semibold pb-3">Generations</h3>
-    <div className="overflow-auto h-40">
+  <div className="md:py-8 py-4">
+    <div className="md:px-0 px-6 pb-3">
+      <h3 className="font-semibold">Generations</h3>
+    </div>
+    <div className="overflow-auto h-40 md:px-0 px-6">
       {generations?.results?.map((gen, index) => (
         <div className="flex-center p-1" key={index}>
           <input
