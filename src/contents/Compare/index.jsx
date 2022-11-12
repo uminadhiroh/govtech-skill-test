@@ -25,7 +25,7 @@ const Compare = ({
         </h1>
       </div>
     </div>
-    <div className="flex gap-8 py-16">
+    <div className="flex lg:gap-8 md:gap-4 gap-2 py-16">
       <div className="w-2/5 dark:bg-gray-200 bg-gray-800 dark:text-black text-white rounded-xl">
         <div className="relative my-4">
           <Image
@@ -37,14 +37,14 @@ const Compare = ({
             className="m-auto"
           />
         </div>
-        <div className="grid grid-cols-1 text-center divide-y divide-gray-400 lg:px-8 px-4">
+        <div className="grid grid-cols-1 text-center divide-y divide-gray-400 lg:px-8 px-2">
           <div>
             <p>{displayNumber(firstPokemon.id)}</p>
-            <h3 className="lg:text-4xl text-3xl font-bold capitalize mb-4">
+            <h3 className="lg:text-4xl md:text-3xl break-all text-xl font-bold capitalize mb-4">
               {firstPokemon.name}
             </h3>
           </div>
-          <div className="flex justify-center gap-2 py-6">
+          <div className="flex flex-wrap justify-center gap-2 py-6">
             {firstPokemon.types.map((type, index) => (
               <div
                 key={index}
@@ -91,15 +91,12 @@ const Compare = ({
         </div>
       </div>
       <div className="w-1/5 text-center">
-        <div
-          className="font-bold lg:text-5xl text-4xl my-4"
-          style={{ height: 250 }}
-        >
+        <div className="font-bold lg:text-5xl text-4xl md:my-4 md:h-64 h-44">
           <div className="flex items-center justify-center h-full">
             <span>VS</span>
           </div>
         </div>
-        <p className="lg:text-lg font-semibold pt-8 pb-4">Species</p>
+        <p className="lg:text-lg font-semibold py-6">Species</p>
         <p className="lg:text-lg font-semibold py-6">Types</p>
         <p className="lg:text-lg font-semibold py-6">Height</p>
         <p className="lg:text-lg font-semibold py-6">Weight</p>
@@ -126,11 +123,11 @@ const Compare = ({
         <div className="grid grid-cols-1 text-center divide-y divide-gray-400 lg:px-8 px-4">
           <div>
             <p>{displayNumber(secondPokemon.id)}</p>
-            <h3 className="lg:text-4xl text-3xl font-bold capitalize mb-4">
+            <h3 className="lg:text-4xl md:text-3xl break-all text-xl font-bold capitalize mb-4">
               {secondPokemon.name}
             </h3>
           </div>
-          <div className="flex justify-center gap-2 py-6">
+          <div className="flex flex-wrap justify-center gap-2 py-6">
             {secondPokemon.types.map((type, index) => (
               <div
                 key={index}
