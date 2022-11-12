@@ -165,9 +165,7 @@ const List = ({ types, generations, species, list }) => {
   return (
     <div className="container m-auto md:px-8 px-4">
       <div className="border-b lg:py-16 py-12">
-        <h1 className="lg:text-5xl md:text-4xl text-3xl font-semibold">
-          Pokédex
-        </h1>
+        <h1 className="md:text-4xl text-3xl font-semibold">Pokédex</h1>
       </div>
       <Menu setShowFilter={setShowFilter} />
       <div className="md:flex xl:gap-16 gap-8 lg:py-8">

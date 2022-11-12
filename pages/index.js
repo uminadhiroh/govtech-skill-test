@@ -1,12 +1,10 @@
 import Head from "next/head";
 import List from "../src/contents/List";
 
-const Home = (props) => (
+const HomePage = (props) => (
   <>
     <Head>
       <title>Pokédex</title>
-      <meta name="description" content="Pokédex by Umi Nadhiroh" />
-      <link rel="icon" href="/pokemon-icon.png" />
     </Head>
     <main>
       <List {...props} />
@@ -68,4 +66,4 @@ export async function getServerSideProps(context) {
   return { props };
 }
 
-export default Home;
+export default HomePage;
