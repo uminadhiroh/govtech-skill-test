@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const Compare = ({ selectedCompare }) => (
+const Compare = ({ selectedCompare, onCompare }) => (
   <div className="lg:w-1/2 w-full fixed lg:inset-x-1/4 inset-x-0 bottom-0 z-10">
     <div className="rounded-t-lg bg-sky-600 text-white shadow-xl md:px-8 px-6 py-3">
       <div className="flex items-center justify-between md:gap-8 gap-6">
@@ -46,6 +46,14 @@ const Compare = ({ selectedCompare }) => (
           <button
             type="button"
             className="flex items-center rounded-3xl bg-white text-sky-900 p-0.25"
+            onClick={() =>
+              onCompare({
+                pathname: "/compare",
+                query: {
+                  name: `${selectedCompare[0].name},${selectedCompare[1].name}`,
+                },
+              })
+            }
           >
             <p className="font-semibold pl-8 pr-4 md:block hidden">Compare</p>
             <svg

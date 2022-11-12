@@ -1,5 +1,5 @@
 import Head from "next/head";
-import List from "../src/contents/List";
+import List from "/src/contents/List";
 
 const HomePage = (props) => (
   <>

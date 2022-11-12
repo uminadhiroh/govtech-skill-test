@@ -220,7 +220,10 @@ const List = ({ types, generations, species, list }) => {
         </div>
       </div>
       {selectedCompare.length > 0 && (
-        <Compare selectedCompare={selectedCompare} />
+        <Compare
+          selectedCompare={selectedCompare}
+          onCompare={(url) => router.push(url)}
+        />
       )}
     </div>
   );

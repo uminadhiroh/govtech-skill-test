@@ -13,6 +13,71 @@ const Card = ({
   onSelectCard,
 }) => {
   const fullySelected = selectedCompare.length === 2;
+  //   let className = "bg-black text-white";
+  //   switch (type) {
+  //     case "normal":
+  //       className = "bg-yellow-600 text-white";
+  //       break;
+  //     case "fighting":
+  //       className = "bg-red-900 text-white";
+  //       break;
+  //     case "flying":
+  //       className = "bg-sky-300 text-black";
+  //       break;
+  //     case "poison":
+  //       className = "bg-purple-400 text-white";
+  //       break;
+  //     case "ground":
+  //       className = "bg-amber-600 text-white";
+  //       break;
+  //     case "rock":
+  //       className = "bg-stone-500 text-white";
+  //       break;
+  //     case "bug":
+  //       className = "bg-green-700 text-white";
+  //       break;
+  //     case "ghost":
+  //       className = "bg-violet-800 text-white";
+  //       break;
+  //     case "steel":
+  //       className = "bg-indigo-400 text-white";
+  //       break;
+  //     case "fire":
+  //       className = "bg-orange-500 text-white";
+  //       break;
+  //     case "water":
+  //       className = "bg-sky-500 text-white";
+  //       break;
+  //     case "grass":
+  //       className = "bg-lime-600 text-white";
+  //       break;
+  //     case "electric":
+  //       className = "bg-yellow-300 text-black";
+  //       break;
+  //     case "psychic":
+  //       className = "bg-fuchsia-400	text-white";
+  //       break;
+  //     case "ice":
+  //       className = "bg-blue-400 text-white";
+  //       break;
+  //     case "dragon":
+  //       className = "bg-indigo-900 text-white";
+  //       break;
+  //     case "dark":
+  //       className = "bg-yellow-900 text-white";
+  //       break;
+  //     case "fairy":
+  //       className = "bg-pink-400 text-white";
+  //       break;
+  //     case "unknown":
+  //       className = "bg-black text-white";
+  //       break;
+  //     case "shadow":
+  //       className = "bg-zinc-400 text-white";
+  //       break;
+  //   }
+  //   return className;
+  // };
 
   const cardComponent = (val) => (
     <div className="border rounded">
@@ -29,7 +94,7 @@ const Card = ({
       <div className="p-4">
         <small>{displayNumber(val.id)}</small>
         <h3 className="text-2xl font-bold capitalize mb-2">{val.name}</h3>
-        <div className="flex gap-2 mb-2">
+        <div className="flex flex-wrap gap-2 mb-2">
           {val.pokemons[0].types.map((type, index) => (
             <div
               key={index}

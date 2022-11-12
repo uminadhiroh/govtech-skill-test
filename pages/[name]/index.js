@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Detail from "../../src/contents/Detail";
+import Detail from "/src/contents/Detail";
 
 const DetailPage = (props) => (
   <>
