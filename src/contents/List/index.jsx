@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Card from "./components/Card";
+import Compare from "./components/Compare";
 import Filter from "./components/Filter";
 import Menu from "./components/Menu";
 
@@ -10,6 +11,9 @@ const List = ({ types, generations, species, list }) => {
   const [offset, setOffset] = useState(21);
   const [data, setData] = useState(list);
   const [showFilter, setShowFilter] = useState(false);
+  const [activeCompare, setActiveCompare] = useState(false);
+  const [selectedCompare, setSelectedCompare] = useState([]);
+  const [keyState, setKeyState] = useState(0);
 
   const hasMore = species.count - offset > 21;
   let bodyQuery = {};
@@ -162,30 +166,62 @@ const List = ({ types, generations, species, list }) => {
     fetchList(newValues, type);
   };
 
+  const onClickCompare = () => {
+    setActiveCompare(!activeCompare);
+    setSelectedCompare([]);
+  };
+
+  const onSelectCard = (name) => {
+    const fullySelected = selectedCompare.length === 2;
+    let newValues = selectedCompare;
+    if (fullySelected && !newValues.includes(name)) {
+      return;
+    }
+    if (newValues.includes(name)) {
+      newValues = newValues.filter((val) => val !== name);
+    } else {
+      newValues.push(name);
+    }
+    setSelectedCompare(newValues);
+    setKeyState(keyState + 1);
+  };
+
   return (
-    <div className="container m-auto md:px-8 px-4">
+    <div className="container relative m-auto md:px-8 px-4">
       <div className="border-b lg:py-16 py-12">
         <h1 className="md:text-4xl text-3xl font-semibold">Pokédex</h1>
       </div>
-      <Menu setShowFilter={setShowFilter} />
+      <Menu
+        activeCompare={activeCompare}
+        setShowFilter={setShowFilter}
+        onClickCompare={onClickCompare}
+      />
       <div className="md:flex xl:gap-16 gap-8 lg:py-8">
         <Filter
           showFilter={showFilter}
+          activeCompare={activeCompare}
           types={types}
           typesParam={typesParam}
           generations={generations}
           generationsParam={generationsParam}
           onFilter={onFilter}
           setShowFilter={setShowFilter}
+          onClickCompare={onClickCompare}
         />
         <div className="md:w-3/4 w-full py-8">
           <Card
             data={data.data.species}
             loadMore={loadMore}
             hasMore={hasMore}
+            activeCompare={activeCompare}
+            selectedCompare={selectedCompare}
+            onSelectCard={onSelectCard}
           />
         </div>
       </div>
+      {selectedCompare.length > 0 && (
+        <Compare selectedCompare={selectedCompare} />
+      )}
     </div>
   );
 };

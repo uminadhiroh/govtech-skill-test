@@ -11,7 +11,7 @@ const Generations = ({ generations, generationsParam, onFilter }) => (
           <input
             type="checkbox"
             id={gen.name}
-            name={gen.name}
+            name="generations"
             value={gen.name}
             defaultChecked={!!generationsParam?.includes(gen.name)}
             className="rounded text-red-500 focus:ring-red-500 mr-2"

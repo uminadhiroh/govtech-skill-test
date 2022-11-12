@@ -5,7 +5,6 @@ import { displayNumber, displayType } from "/src/helpers/format";
 
 const Detail = ({ pokemon, species }) => (
   <div className="container m-auto md:px-8 px-4">
-    {console.log("detail", pokemon, species)}
     <div className="md:text-4xl text-3xl font-semibold">
       <div className="border-b lg:py-16 py-12 flex gap-2">
         <Link href="/">
@@ -68,7 +67,7 @@ const Detail = ({ pokemon, species }) => (
         </div>
         <p className="font-semibold text-lg pt-8 pb-4">Stats</p>
         {pokemon.stats.map((stat, index) => (
-          <div className="flex items-center mb-3">
+          <div className="flex items-center mb-3" key={index}>
             <p key={index} className="w-40 capitalize">
               {stat.stat.name === "hp"
                 ? "HP"
@@ -81,7 +80,7 @@ const Detail = ({ pokemon, species }) => (
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="#fde047"
-                  class="w-6 h-6 inline-flex"
+                  className="w-6 h-6 inline-flex"
                   key={i}
                 >
                   <path

@@ -11,7 +11,7 @@ const Types = ({ types, typesParam, onFilter }) => (
           <input
             type="checkbox"
             id={type.name}
-            name={type.name}
+            name="types"
             value={type.name}
             defaultChecked={!!typesParam?.includes(type.name)}
             className="rounded text-red-500 focus:ring-red-500 mr-2"
